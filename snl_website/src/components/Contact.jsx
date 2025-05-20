@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Contact = () => {
   return (
-     <section id="contact" className="py-12 bg-gray-50 rounded-2xl my-8 p-8">
+     <section id="contact" className="py-12">
 	    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 	      <div>
 	        <h2 className="text-3xl font-bold mb-4">Get in <span className="text-primary-600">Touch</span></h2>

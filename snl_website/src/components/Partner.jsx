@@ -1,12 +1,10 @@
 import React from 'react'
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
-const Testimonial = () => {
+const Partner = () => {
   return (
-    <section id="testimonials" className="py-12 bg-gray-50 rounded-2xl my-8 p-8">
-	    <div className="text-center mb-12">
-	      <h2 className="text-3xl font-bold mb-4">What Our <span className="text-primary-600">Clients Say</span></h2>
+   <section id="partner" className="py-12">
+    <div className="text-center mb-12">
+	      <h2 className="text-3xl font-bold mb-4">Our Partner</h2>
 	      <p className="text-gray-600 max-w-3xl mx-auto">Don't just take our word for it. Hear from our satisfied customers about their solar journey with us.</p>
 	    </div>
 	    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -64,8 +62,8 @@ const Testimonial = () => {
 	      </div>
 	    </div>
 	    {/* Next: "Add testimonial slider with pagination" */}
-	  </section>
+   </section>
   )
 }
 
-export default Testimonial
+export default Partner
