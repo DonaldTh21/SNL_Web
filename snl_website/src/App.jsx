@@ -312,7 +312,7 @@ const App = () => {
 	      <div>
 	        <div className="flex items-center space-x-2 mb-4">
 	          <img src={icon} alt="SNL" className="w-10 h-10" />
-	          <h3 className="text-xl font-bold text-green-600">SNL</h3>
+	          <h3 className="text-xl font-bold text-green-600">SNL <span className='text-xl font-bold text-green-900'>Energy</span></h3>
 	        </div>
 	        <p className="text-gray-600 mb-4">Powering a sustainable future with innovative solar solutions since 2019.</p>
 	      </div>
