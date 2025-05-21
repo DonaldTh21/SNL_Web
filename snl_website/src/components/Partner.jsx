@@ -1,69 +1,102 @@
-import React from 'react'
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+// Partner logos with URLs
+const partners = [
+  {
+    name: "Atal",
+    logo: "/images/partners/Atal.jpg",
+    url: "https://aicselco.org/",
+  },
+  {
+    name: "Bharataya Vikas Trust",
+    logo: "/images/partners/Bharataya Vikas Trust.jpg",
+    url: "https://bvtmanipal.org/",
+  },
+  {
+    name: "Customized Energy",
+    logo: "images/partners/Customized Energy.png",
+    url: "https://ces-ltd.com/",
+  },
+  {
+    name: "From the People of Japan",
+    logo: "/images/partners/From the peope of Japan.jpg",
+    url: "#",
+  },
+  {
+    name: "Selco",
+    logo: "/images/partners/Selco.png",
+    url: "https://selcofoundation.org/",
+  },
+  {
+    name: "UNDP",
+    logo: "/images/partners/UNDP.png",
+    url: "https://www.undp.org/",
+  },
+  {
+    name: "Unltd India",
+    logo: "/images/partners/Unltd_India.png",
+    url: "https://unltdindia.org/",
+  },
+  // Add more partners as needed
+];
 
 const Partner = () => {
   return (
-   <section id="partner" className="py-12">
-    <div className="text-center mb-12">
-	      <h2 className="text-3xl font-bold mb-4">Our Partner</h2>
-	      <p className="text-gray-600 max-w-3xl mx-auto">Don't just take our word for it. Hear from our satisfied customers about their solar journey with us.</p>
-	    </div>
-	    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-	      <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
-	        <div className="flex items-center mb-4">
-	          <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
-	            <span className="material-symbols-outlined">person</span>
-	          </div>
-	          <div>
-	            <h4 className="font-semibold">Sarah Johnson</h4>
-	            <p className="text-gray-500 text-sm">Homeowner</p>
-	          </div>
-	        </div>
-	        <div className="mb-4 flex">
-	          {[...Array(5)].map((_, i) => (
-	            <span key={i} className="text-yellow-400 material-symbols-outlined text-lg">star</span>
-	          ))}
-	        </div>
-	        <p className="text-gray-600 italic">"SNL Energy Solution transformed our home's energy consumption. The installation was quick and professional, and we're saving over $200 per month on our electricity bills!"</p>
-	      </div>
-	      <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
-	        <div className="flex items-center mb-4">
-	          <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
-	            <span className="material-symbols-outlined">person</span>
-	          </div>
-	          <div>
-	            <h4  className="font-semibold">Michael Rodriguez</h4>
-	            <p className="text-gray-500 text-sm">Business Owner</p>
-	          </div>
-	        </div>
-	        <div className="mb-4 flex">
-	          {[...Array(5)].map((_, i) => (
-	            <span key={i} className="text-yellow-400 material-symbols-outlined text-lg">star</span>
-	          ))}
-	        </div>
-	        <p className="text-gray-600 italic">"As a small business owner, I was skeptical about the investment, but SNL Energy Solution made the process seamless. The ROI has been fantastic, and the system paid for itself faster than expected."</p>
-	      </div>
-	      <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
-	        <div className="flex items-center mb-4">
-	          <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
-	            <span className="material-symbols-outlined">person</span>
-	          </div>
-	          <div>
-	            <h4 className="font-semibold">Emily Chen</h4>
-	            <p className="text-gray-500 text-sm">Property Manager</p>
-	          </div>
-	        </div>
-	        <div className="mb-4 flex">
-	          {[...Array(4)].map((_, i) => (
-	            <span key={i} className="text-yellow-400 material-symbols-outlined text-lg">star</span>
-	          ))}
-	          <span className="text-yellow-400 material-symbols-outlined text-lg">star_half</span>
-	        </div>
-	        <p className="text-gray-600 italic">"We installed solar panels on multiple properties in our portfolio, and SNL Energy Solution has been an excellent partner. Their maintenance team is responsive and keeps our systems running optimally."</p>
-	      </div>
-	    </div>
-	    {/* Next: "Add testimonial slider with pagination" */}
-   </section>
-  )
-}
+    <section id="partner" className="py-10 bg-gray-50 rounded-2xl my-8 p-8">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold mb-2">Our Partners</h2>
+        <p className="text-gray-600 max-w-3xl mx-auto h-16 flex items-center justify-center gap-x-2 mb-2">
+          <i className="fas fa-handshake-angle text-yellow-500 text-2xl"></i>
+          With Support, We Go Further
+        </p>
+      </div>
 
-export default Partner
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={30}
+        slidesPerView={2}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          reverseDirection: false,
+        }}
+        loop={true}
+        allowSlidePrev={false}
+        breakpoints={{
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+        }}
+        className="px-6"
+      >
+        {partners.map((partner, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex items-center justify-center h-32">
+              <a
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-32 transition-shadow duration-300 hover:shadow-md"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-full max-w-full object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+                />
+              </a>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+  );
+};
+
+export default Partner;
