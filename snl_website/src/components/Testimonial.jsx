@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
+import { Pagination } from "swiper/modules";
 
 const testimonialsData = [
   {
@@ -52,6 +53,7 @@ const Testimonial = () => {
       </div>
 
       <Swiper
+        modules={[Pagination]}
         spaceBetween={24}
         slidesPerView={1}
         breakpoints={{
@@ -59,11 +61,13 @@ const Testimonial = () => {
             slidesPerView: 2,
           },
         }}
+        pagination={{ clickable: true }}
+        className="!pb-8 myCustomSwiper"
       >
         {testimonialsData.map(
           ({ id, title, location, quote, author, place }) => (
             <SwiperSlide key={id}>
-              <div className="bg-white p-6 rounded-xl hover:shadow-md transition-all border border-gray-100 h-full flex flex-col justify-between mb-1">
+              <div className="bg-white p-5 rounded-xl hover:shadow-md transition-all border border-gray-100 h-full flex flex-col justify-between m-1">
                 <div>
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">

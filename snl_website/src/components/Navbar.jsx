@@ -56,13 +56,20 @@ const Navbar = () => {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 bg-white border-b border-gray-200 py-2 px-4 md:px-8"
+      className="sticky top-0 z-50 bg-white border-b border-gray-200 py-2 px-4 md:px-8 drop-shadow-md"
     >
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={scrollOffset}
+          duration={500}
+          className="flex items-center space-x-2 hover:cursor-pointer"
+        >
           <img src={icon} alt="SNL Logo" className="w-16 h-16" />
-        </div>
+        </Link>
 
         {/* Mobile menu icon */}
         <button
@@ -87,8 +94,9 @@ const Navbar = () => {
                 setMenuOpen(false);
                 setActiveSection(item.href);
               }}
-              className={`px-3 py-2 rounded-lg hover:bg-yellow-50 transition-all hover:cursor-pointer ${
-                activeSection === item.href ? "bg-yellow-100 font-semibold" : ""
+              onSetActive={() => setActiveSection(item.href)}
+              className={`px-3 py-2 rounded-lg hover:bg-green-50 transition-all hover:cursor-pointer ${
+                activeSection === item.href ? "bg-green-100 font-semibold" : ""
               }`}
             >
               {item.label}
@@ -122,8 +130,9 @@ const Navbar = () => {
               setActiveSection(item.href);
               setMenuOpen(false);
             }}
-            className={`px-3 py-2 rounded-lg hover:bg-yellow-50 transition-all hover:cursor-pointer ${
-              activeSection === item.href ? "bg-yellow-100 font-semibold" : ""
+            onSetActive={() => setActiveSection(item.href)}
+            className={`px-3 py-2 rounded-lg hover:bg-green-50 transition-all hover:cursor-pointer ${
+              activeSection === item.href ? "bg-green-100 font-semibold" : ""
             }`}
           >
             {item.label}

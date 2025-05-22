@@ -9,6 +9,7 @@ import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
 import Partner from "./components/Partner";
 import Impact from "./components/Impact";
+import "./index.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -16,10 +17,10 @@ const App = () => {
   return (
     <main>
       <div id="webcrumbs">
+        <Navbar />
         <div className="px-3 md:px-6 font-sans">
-          <Navbar />
           <Home />
-          <Mission /> 
+          <Mission />
           <Journey />
           <WhatWeDo />
           <Impact />

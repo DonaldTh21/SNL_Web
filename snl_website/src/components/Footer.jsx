@@ -2,6 +2,16 @@ import React from "react";
 import icon from "../assets/SNL_Logo.png";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+const navItems = [
+  { id: 1, label: "Home", href: "home" },
+  { id: 2, label: "Mission", href: "mission" },
+  { id: 3, label: "Our Journey", href: "journey" },
+  { id: 4, label: "What We Do", href: "whatwedo" },
+  { id: 5, label: "Impact", href: "impact" },
+  { id: 6, label: "Stories", href: "testimonials" },
+  { id: 7, label: "Partners", href: "partner" },
+];
+
 const Footer = () => {
   return (
     <footer className="py-8 border-t border-gray-200 mt-8">
@@ -15,49 +25,19 @@ const Footer = () => {
             underserved communities since our inception.
           </p>
         </div>
-        <div>
+        <div className="hidden md:block">
           <h4 className="font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2">
-            <li>
-              <a
-                href="#home"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="#services"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Contact
-              </a>
-            </li>
+            {navItems.map((nav) => (
+              <li key={nav.id}>
+                <a
+                  href={`#${nav.href}`}
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  {nav.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
@@ -107,7 +87,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
               >
-                <i class="fa-brands fa-x-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </a>
               <a
                 href="#"

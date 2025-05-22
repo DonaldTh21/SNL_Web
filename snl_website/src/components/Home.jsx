@@ -18,7 +18,7 @@ const Home = () => {
             brighter future from the grassroots.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="flex items-center justify-center px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-primary-700 transition-all transform hover:scale-105">
+            <button className="flex items-center justify-center px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105">
               <span className="material-symbols-outlined mr-2">
                 play_circle
               </span>
