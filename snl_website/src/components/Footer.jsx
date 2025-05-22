@@ -105,7 +105,7 @@ const Footer = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
+                className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:bg-gray-700 transition-colors"
               >
                 <i class="fa-brands fa-x-twitter"></i>
               </a>

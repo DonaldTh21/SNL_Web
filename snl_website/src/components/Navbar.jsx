@@ -1,26 +1,63 @@
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // ✅ import both icons
+import React, { useState, useEffect, useRef } from "react";
+import { Menu, X } from "lucide-react";
 import icon from "../assets/SNL_Logo.png";
+import { Link } from "react-scroll";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Mission", href: "#mission" },
-  { label: "Our Journey", href: "#journey" },
-  { label: "What We Do", href: "#whatwedo" },
-  { label: "Impact", href: "#impact" },
-  { label: "Stories", href: "#testimonials" },
-  { label: "Partners", href: "#partner" },
+  { label: "Home", href: "home" },
+  { label: "Mission", href: "mission" },
+  { label: "Our Journey", href: "journey" },
+  { label: "What We Do", href: "whatwedo" },
+  { label: "Impact", href: "impact" },
+  { label: "Stories", href: "testimonials" },
+  { label: "Partners", href: "partner" },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const [scrollOffset, setScrollOffset] = useState(-80);
+
+  const headerRef = useRef(null);
+
+  const updateOffset = () => {
+    if (headerRef.current) {
+      const height = headerRef.current.offsetHeight;
+
+      // Detect mobile screen width (you can tweak this breakpoint)
+      const isMobile = window.innerWidth < 768;
+
+      // On mobile, add extra offset to account for sticky menu and potential padding
+      const extraMobileOffset = 350;
+
+      const offset = isMobile ? -(height + extraMobileOffset) : -(height + 10);
+
+      setScrollOffset(offset);
+    }
+  };
+
+  useEffect(() => {
+    updateOffset();
+
+    window.addEventListener("resize", updateOffset);
+
+    return () => window.removeEventListener("resize", updateOffset);
+  }, []);
+
+  // Also update offset when menu toggles
+  useEffect(() => {
+    updateOffset();
+  }, [menuOpen]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
   return (
-    <header className="md:static sticky top-0 z-50 bg-white border-b border-gray-200 py-2 px-4 md:px-8">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 bg-white border-b border-gray-200 py-2 px-4 md:px-8"
+    >
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -39,13 +76,23 @@ const Navbar = () => {
         {/* Desktop nav */}
         <nav className="hidden md:flex space-x-6">
           {navItems.map((item, index) => (
-            <a
+            <Link
               key={index}
-              href={item.href}
-              className="px-3 py-2 rounded-lg hover:bg-yellow-50 transition-all"
+              to={item.href}
+              spy={true}
+              smooth={true}
+              offset={scrollOffset}
+              duration={500}
+              onClick={() => {
+                setMenuOpen(false);
+                setActiveSection(item.href);
+              }}
+              className={`px-3 py-2 rounded-lg hover:bg-yellow-50 transition-all hover:cursor-pointer ${
+                activeSection === item.href ? "bg-yellow-100 font-semibold" : ""
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -64,13 +111,23 @@ const Navbar = () => {
         } flex flex-col space-y-2`}
       >
         {navItems.map((item, index) => (
-          <a
+          <Link
             key={index}
-            href={item.href}
-            className="px-3 py-2 rounded-lg hover:bg-yellow-50 transition-all"
+            to={item.href}
+            spy={true}
+            smooth={true}
+            offset={scrollOffset}
+            duration={500}
+            onClick={() => {
+              setActiveSection(item.href);
+              setMenuOpen(false);
+            }}
+            className={`px-3 py-2 rounded-lg hover:bg-yellow-50 transition-all hover:cursor-pointer ${
+              activeSection === item.href ? "bg-yellow-100 font-semibold" : ""
+            }`}
           >
             {item.label}
-          </a>
+          </Link>
         ))}
       </div>
     </header>

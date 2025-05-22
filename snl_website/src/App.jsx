@@ -19,7 +19,7 @@ const App = () => {
         <div className="px-3 md:px-6 font-sans">
           <Navbar />
           <Home />
-          <Mission />
+          <Mission /> 
           <Journey />
           <WhatWeDo />
           <Impact />
