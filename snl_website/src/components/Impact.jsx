@@ -52,7 +52,7 @@ const Impact = () => {
           scrollTrigger: {
             trigger: ref,
             start: "top 80%",
-            end: "bottom bottom",
+            end: "center bottom",
             toggleActions: "play none none reverse",
           },
           onUpdate: function () {
